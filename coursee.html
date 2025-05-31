@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICS Academy - 60+ Professional Courses</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        html {
+  scroll-behavior: smooth;
+}
+
+        :root {
+            --primary-color: #03045e;
+            --secondary-color: #0077be;
+            --accent-color: #00b4d8;
+            --light-color: #90e0ef;
+            --extra-light: #caf0f8;
+            --purple-color: #6f42c1;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            padding: 15px 0;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 24px;
+            color: var(--primary-color) !important;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+        
+        .navbar-brand span {
+            color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link {
+            color: var(--primary-color) !important;
+            font-weight: 500;
+            padding: 8px 15px !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        /* Search Bar */
+        .search-container {
+            position: relative;
+            margin-left: 15px;
+        }
+        
+        .search-input {
+            padding: 8px 15px 8px 35px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            width: 200px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            width: 250px;
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.25rem rgba(0, 180, 216, 0.25);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 10px;
+            color: #777;
+        }
+        
+        /* Purple Button Fix */
+        .btn-outline-purple {
+            color: var(--purple-color);
+            border-color: var(--purple-color);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-purple:hover {
+            color: white;
+            background-color: var(--purple-color);
+            transform: translateY(-2px);
+        }
+        
+        .text-purple {
+            color: var(--purple-color) !important;
+        }
+        
+        .border-purple {
+            border-color: var(--purple-color) !important;
+        }
+        
+        .bg-purple {
+            background-color: var(--purple-color) !important;
+        }
+       /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 19px;
+      right: 18px;
+      display: none;
+      z-index: 99;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 50px;
+      font-size: 20px;
+      background-color: var(--accent-color);
+      color: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .back-to-top:hover {
+      transform: translateY(-5px) scale(1.1);
+      background-color: var(--secondary-color);
+    }
+    
+        
+        /* Course Cards */
+        .course-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            margin-bottom: 30px;
+            background-color: white;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            will-change: transform, box-shadow;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+       .course-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+        
+        .course-card:hover .course-img {
+            transform: scale(1.05);
+        }
+        
+        .course-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 0.8rem;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .course-card:hover .course-badge {
+            transform: scale(1.1);
+        }
+        
+        .duration-4 {
+            background-color: var(--accent-color);
+        }
+        
+        .duration-6 {
+            background-color: #28a745;
+        }
+        
+        .duration-12 {
+            background-color: var(--purple-color);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .floating:hover {
+            animation: float 3s ease-in-out infinite, pulse 1.5s ease-in-out infinite;
+        }
+        
+        /* Category Badges */
+        .badge-it {
+            background-color: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .badge-design {
+            background-color: #dc3545;
+            transition: all 0.3s ease;
+        }
+        
+        .badge-business {
+            background-color: #fd7e14;
+            transition: all 0.3s ease;
+        }
+        
+        .badge-language {
+            background-color: var(--purple-color);
+            transition: all 0.3s ease;
+        }
+        
+        .badge:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .hero-section:hover::before {
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Duration Cards */
+        .duration-card {
+            transition: all 0.3s ease;
+            border-width: 2px;
+        }
+        
+        .duration-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Form Elements */
+        .form-control, .form-select {
+            transition: all 0.3s ease;
+            border-width: 1px;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.25rem rgba(0, 180, 216, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        /* Social Icons */
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        /* No Results Message */
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 50px;
+            grid-column: 1 / -1;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .search-container {
+                margin: 10px 0;
+                width: 100%;
+            }
+            
+            .search-input {
+                width: 100%;
+            }
+            
+            .search-input:focus {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .course-card {
+                margin-bottom: 20px;
+            }
+            
+            .course-card:hover {
+                transform: translateY(-5px);
+            }
+            
+            .floating {
+                animation: none;
+            }
+        }
+        
+        /* Loading Animation */
+
+        
+        /* Hover effects for buttons */
+        .btn-primary {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.4);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(1px);
+        }
+        
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .btn-primary:hover::after {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+
+
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" id="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">ICS <span>INDIA</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" href="#duration-comparison">Durations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contactForm">Contact</a>
+                </li>
+            </ul>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="courseSearch" class="search-input" placeholder="Search courses...">
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section" id="home">
+    <div class="container text-center hero-content" data-aos="fade-in">
+        <h1 class="display-4 fw-bold mb-4" data-aos="fade-up" data-aos-delay="100">60+ Professional Courses</h1>
+        <p class="lead mb-5" data-aos="fade-up" data-aos-delay="200">Transform your career with our industry-relevant training programs</p>
+        <div class="row justify-content-center">
+            <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="p-4 bg-white text-dark rounded shadow floating">
+                    <h3 class="text-primary">4-12</h3>
+                    <p>Month Durations</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="p-4 bg-white text-dark rounded shadow floating">
+                    <h3 class="text-primary">60+</h3>
+                    <p>Courses Available</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="500">
+                <div class="p-4 bg-white text-dark rounded shadow floating">
+                    <h3 class="text-primary">100%</h3>
+                    <p>Placement Support</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- IT Courses Section -->
+<section id="it-courses" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5" data-aos="fade-up">IT & Computer Courses</h2>
+        <div class="row course-container">
+            <!-- DCA Course -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="it" data-duration="6" data-aos="fade-up" data-aos-delay="100">
+                <div class="course-card">
+                    <span class="badge duration-6 course-badge">6 Months</span>
+                    <img src="c1.jpg" class="course-img" alt="DCA">
+                    <div class="card-body">
+                        <h5 class="card-title">DCA (Diploma in Computer Application)</h5>
+                        <p class="card-text">Fundamentals of computer hardware and basic networking.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-it">IT</span>
+                          <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PGDCA Courses -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="it" data-duration="12" data-aos="fade-up" data-aos-delay="200">
+                <div class="course-card">
+                    <span class="badge duration-12 course-badge">1 Year</span>
+                    <img src="c2.jpg" class="course-img" alt="PGDCA">
+                    <div class="card-body">
+                        <h5 class="card-title">PGDCA (Post Graduate Diploma)</h5>
+                        <p class="card-text">Advanced computer applications and programming.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-it">IT</span>
+                            <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ICSE-MACT -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="it" data-duration="18" data-aos="fade-up" data-aos-delay="300">
+                <div class="course-card">
+                    <span class="badge duration-12 course-badge">1.5 Years</span>
+                    <img src="c3.png" class="course-img" alt="ICSE-MACT">
+                    <div class="card-body">
+                        <h5 class="card-title">ICSE-MACT (Masters in Advanced Computer Technology)</h5>
+                        <p class="card-text">Computer hardware, laptop chip-level, CCTV, networking, MCSE, CCNA.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-it">IT</span>
+                            <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ICSE-Technical -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="it" data-duration="18" data-aos="fade-up" data-aos-delay="100">
+                <div class="course-card">
+                    <span class="badge duration-12 course-badge">1.5 Years</span>
+                    <img src="c4.jpg" class="course-img" alt="ICSE-Technical">
+                    <div class="card-body">
+                        <h5 class="card-title">ICSE-Technical</h5>
+                        <p class="card-text">Computer hardware, networking, security systems, MCSE, CCNA.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-it">IT</span>
+                           <a href="#contactForm" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DIITE -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="it" data-duration="10" data-aos="fade-up" data-aos-delay="200">
+                <div class="course-card">
+                    <span class="badge duration-6 course-badge">10 Months</span>
+                    <img src="c4.jpg" class="course-img" alt="DIITE">
+                    <div class="card-body">
+                        <h5 class="card-title">DIITE (Diploma in IT Engineering)</h5>
+                        <p class="card-text">Computer hardware, networking, security systems, MCSE, CCNA.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-it">IT</span>
+                           <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Python Fullstack -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="it" data-duration="12" data-aos="fade-up" data-aos-delay="300">
+                <div class="course-card">
+                    <span class="badge duration-12 course-badge">1 Year</span>
+                    <img src="c4.jpg" class="course-img" alt="Python Fullstack">
+                    <div class="card-body">
+                        <h5 class="card-title">Python Fullstack Development</h5>
+                        <p class="card-text">Complete training in Python programming and web development.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-it">IT</span>
+                            <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AIMS Department Courses -->
+<section id="aims-courses"class="py-5 bg-light"class="aims">
+    <div class="container">
+        <h2 class="text-center mb-5" data-aos="fade-up">AIMS Department Courses</h2>
+        <div class="row course-container">
+            <!-- TALLY -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="business" data-duration="2.5" data-aos="fade-up" data-aos-delay="100">
+                <div class="course-card">
+                    <span class="badge duration-4 course-badge">2.5 Months</span>
+                    <img src="c4.jpg" class="course-img" alt="TALLY">
+                    <div class="card-body">
+                        <h5 class="card-title">TALLY</h5>
+                        <p class="card-text">Complete accounting software training with GST.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-business">Business</span>
+                            <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- C-DAC -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="it" data-duration="3" data-aos="fade-up" data-aos-delay="200">
+                <div class="course-card">
+                    <span class="badge duration-6 course-badge">3 Months</span>
+                    <img src="c4.jpg" class="course-img" alt="C-DAC">
+                    <div class="card-body">
+                        <h5 class="card-title">C-DAC</h5>
+                        <p class="card-text">Advanced computing and software development.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-it">IT</span>
+                           <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DIFA -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="finance" data-duration="6" data-aos="fade-up" data-aos-delay="300">
+                <div class="course-card">
+                    <span class="badge duration-6 course-badge">6 Months</span>
+                    <img src="c4.jpg" class="course-img" alt="DIFA">
+                    <div class="card-body">
+                        <h5 class="card-title">DIFA (Diploma in Financial Accounting)</h5>
+                        <p class="card-text">Professional financial accounting training.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-business">Business</span>
+                            <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DIFA + SAP -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="business" data-duration="8" data-aos="fade-up" data-aos-delay="100">
+                <div class="course-card">
+                    <span class="badge duration-12 course-badge">8 Months</span>
+                    <img src="c4.jpg" class="course-img" alt="DIFA + SAP">
+                    <div class="card-body">
+                        <h5 class="card-title">DIFA + SAP</h5>
+                        <p class="card-text">Financial accounting with SAP ERP software.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-business">Business</span>
+                            <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- IFA -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="finance" data-duration="9" data-aos="fade-up" data-aos-delay="200">
+                <div class="course-card">
+                    <span class="badge duration-12 course-badge">9 Months</span>
+                    <img src="c4.jpg" class="course-img" alt="IFA">
+                    <div class="card-body">
+                        <h5 class="card-title">IFA (International Financial Accounting)</h5>
+                        <p class="card-text">Advanced international accounting standards.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-business">Business</span>
+                            <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SAP -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="business" data-duration="2" data-aos="fade-up" data-aos-delay="300">
+                <div class="course-card">
+                    <span class="badge duration-4 course-badge">2 Months</span>
+                    <img src="c4.jpg" class="course-img" alt="SAP">
+                    <div class="card-body">
+                        <h5 class="card-title">SAP</h5>
+                        <p class="card-text">Enterprise resource planning software training.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-business">Business</span>
+                            <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Fashion Designing Courses -->
+<section id="fashion-courses" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5" data-aos="fade-up">Fashion Designing Courses</h2>
+        <div class="row course-container">
+            <!-- ICSE Fashion -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="design" data-duration="6" data-aos="fade-up" data-aos-delay="100">
+                <div class="course-card">
+                    <span class="badge duration-6 course-badge">6 Months</span>
+                    <img src="c4.jpg" class="course-img" alt="ICSE Fashion">
+                    <div class="card-body">
+                        <h5 class="card-title">ICSE Fashion Designing</h5>
+                        <p class="card-text">Basic fashion design principles and techniques.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-design">Design</span>
+                            <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MACT Fashion -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="design" data-duration="12" data-aos="fade-up" data-aos-delay="200">
+                <div class="course-card">
+                    <span class="badge duration-12 course-badge">1 Year</span>
+                    <img src="c4.jpg" class="course-img" alt="MACT Fashion">
+                    <div class="card-body">
+                        <h5 class="card-title">MACT Fashion Designing</h5>
+                        <p class="card-text">Advanced fashion design and garment construction.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-design">Design</span>
+                            <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Advanced Diploma -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="design" data-duration="18" data-aos="fade-up" data-aos-delay="300">
+                <div class="course-card">
+                    <span class="badge duration-12 course-badge">18 Months</span>
+                    <img src="c4.jpg" class="course-img" alt="Advanced Diploma">
+                    <div class="card-body">
+                        <h5 class="card-title">Advanced Diploma in Computerised Fashion Designing</h5>
+                        <p class="card-text">Professional fashion design with computer applications.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-design">Design</span>
+                           <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Diploma 1 Year -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="design" data-duration="12" data-aos="fade-up" data-aos-delay="100">
+                <div class="course-card">
+                    <span class="badge duration-12 course-badge">1 Year</span>
+                    <img src="c4.jpg" class="course-img" alt="Diploma 1 Year">
+                    <div class="card-body">
+                        <h5 class="card-title">Diploma in Computerised Fashion Designing</h5>
+                        <p class="card-text">Comprehensive fashion design training.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-design">Design</span>
+                            <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Basic Fashion -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="design" data-duration="6" data-aos="fade-up" data-aos-delay="200">
+                <div class="course-card">
+                    <span class="badge duration-6 course-badge">6 Months</span>
+                    <img src="c4.jpg" class="course-img" alt="Basic Fashion">
+                    <div class="card-body">
+                        <h5 class="card-title">Basic Fashion Designing</h5>
+                        <p class="card-text">Introduction to fashion design concepts.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-design">Design</span>
+                            <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Interior Design Courses -->
+<section id="interior-courses" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5" data-aos="fade-up">Interior & Exterior Designing</h2>
+        <div class="row course-container">
+            <!-- Package 1 -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="design" data-duration="6" data-aos="fade-up" data-aos-delay="100">
+                <div class="course-card">
+                    <span class="badge duration-6 course-badge">6 Months</span>
+                    <img src="c4.jpg" class="course-img" alt="Interior Package 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Interior Design Package 1</h5>
+                        <p class="card-text">AutoCAD, 3DS Max, Revit Architecture with project work.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-design">Design</span>
+                           <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Package 2 -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="design" data-duration="8" data-aos="fade-up" data-aos-delay="200">
+                <div class="course-card">
+                    <span class="badge duration-6 course-badge">8 Months</span>
+                    <img src="c4.jpg" class="course-img" alt="Interior Package 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Interior Design Package 2</h5>
+                        <p class="card-text">AutoCAD, 3DS Max, Revit Architecture, SketchUp with project.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-design">Design</span>
+                            <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RAYS Media Courses -->
+<section id="media-courses" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5" data-aos="fade-up">RAYS (Media & Advertisement)</h2>
+        <div class="row course-container">
+            <!-- DIMA -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="media" data-duration="18" data-aos="fade-up" data-aos-delay="100">
+                <div class="course-card">
+                    <span class="badge duration-12 course-badge">1.5 Years</span>
+                    <img src="c4.jpg" class="course-img" alt="DIMA">
+                    <div class="card-body">
+                        <h5 class="card-title">DIMA (Diploma in Media & Advertisement)</h5>
+                        <p class="card-text">Comprehensive media and advertising training.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-design">Media</span>
+                           <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Diploma in Multimedia -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="media" data-duration="12" data-aos="fade-up" data-aos-delay="200">
+                <div class="course-card">
+                    <span class="badge duration-12 course-badge">1 Year</span>
+                    <img src="c4.jpg" class="course-img" alt="Multimedia">
+                    <div class="card-body">
+                        <h5 class="card-title">Diploma in Multimedia</h5>
+                        <p class="card-text">Graphic design, animation, and multimedia production.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-design">Media</span>
+                           <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Graphic + Digital Marketing -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="media" data-duration="12" data-aos="fade-up" data-aos-delay="300">
+                <div class="course-card">
+                    <span class="badge duration-12 course-badge">1 Year</span>
+                    <img src="c4.jpg" class="course-img" alt="Graphic + Digital Marketing">
+                    <div class="card-body">
+                        <h5 class="card-title">Graphic Design + Digital Marketing</h5>
+                        <p class="card-text">Combined training in design and online marketing.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-design">Media</span>
+                            <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DIDM -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="media" data-duration="8" data-aos="fade-up" data-aos-delay="100">
+                <div class="course-card">
+                    <span class="badge duration-6 course-badge">8 Months</span>
+                    <img src="c4.jpg" class="course-img" alt="DIDM">
+                    <div class="card-body">
+                        <h5 class="card-title">DIDM (Diploma in Digital Marketing)</h5>
+                        <p class="card-text">Comprehensive digital marketing strategies.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-design">Media</span>
+                           <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Graphic, Video, Motion -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="media" data-duration="8" data-aos="fade-up" data-aos-delay="200">
+                <div class="course-card">
+                    <span class="badge duration-6 course-badge">8 Months</span>
+                    <img src="c4.jpg" class="course-img" alt="Graphic, Video, Motion">
+                    <div class="card-body">
+                        <h5 class="card-title">Graphic Design, Video Editing & Motion Graphics</h5>
+                        <p class="card-text">Complete media production training.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-design">Media</span>
+                            <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Graphic Design -->
+            <div class="col-lg-4 col-md-6 course-item" data-category="media" data-duration="4" data-aos="fade-up" data-aos-delay="300">
+                <div class="course-card">
+                    <span class="badge duration-4 course-badge">4 Months</span>
+                    <img src="c4.jpg" class="course-img" alt="Graphic Design">
+                    <div class="card-body">
+                        <h5 class="card-title">Graphic Design</h5>
+                        <p class="card-text">Fundamentals of graphic design and visual communication.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-design">Media</span>
+                            <a href=".row" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- No Results Message -->
+<div class="container">
+    <div class="no-results" id="noResults">
+        <i class="fas fa-search fa-3x mb-3" style="color: var(--accent-color);"></i>
+        <h3>No courses found</h3>
+        <p>We couldn't find any courses matching your search. Try different keywords.</p>
+    </div>
+</div>
+
+
+
+<!-- Duration Comparison Section -->
+<section id="duration-comparison" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5" data-aos="fade-up">Course Duration Comparison</h2>
+        <div class="row">
+            <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card h-100 border-primary duration-card">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h4>4-Month Regular</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><i class="fas fa-check text-primary me-2"></i> 16 weeks duration</li>
+                            <li class="list-group-item"><i class="fas fa-check text-primary me-2"></i> 2-3 days per week</li>
+                            <li class="list-group-item"><i class="fas fa-check text-primary me-2"></i> 2-3 practical projects</li>
+                            <li class="list-group-item"><i class="fas fa-check text-primary me-2"></i> Standard placement support</li>
+                            <li class="list-group-item"><i class="fas fa-check text-primary me-2"></i> Course completion certificate</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-outline-primary">View 4-Month Courses</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card h-100 border-success duration-card">
+                    <div class="card-header bg-success text-white text-center">
+                        <h4>6-Month Vacation</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> 24 weeks duration</li>
+                            <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> Intensive 5 days per week</li>
+                            <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> 4-5 in-depth projects</li>
+                            <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> Priority placement support</li>
+                            <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> Advanced certification</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-outline-success">View 6-Month Courses</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card h-100 border-purple duration-card">
+                    <div class="card-header bg-purple text-white text-center">
+                        <h4>12-Month Comprehensive</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><i class="fas fa-check text-purple me-2"></i> Full year program</li>
+                            <li class="list-group-item"><i class="fas fa-check text-purple me-2"></i> 4-5 days per week</li>
+                            <li class="list-group-item"><i class="fas fa-check text-purple me-2"></i> 6-8 major projects</li>
+                            <li class="list-group-item"><i class="fas fa-check text-purple me-2"></i> Guaranteed internship</li>
+                            <li class="list-group-item"><i class="fas fa-check text-purple me-2"></i> Professional certification</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-outline-purple">View 12-Month Courses</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5 bg-dark text-white">
+    <div class="container">
+        <h2 class="text-center mb-5" data-aos="fade-up">Contact Us</h2>
+        <div class="row">
+            <div class="col-lg-6 mb-4" data-aos="fade-right">
+                <h4><i class="fas fa-map-marker-alt me-2"></i> Our Location</h4>
+                <p class="mb-4">123 Education Street, Tech City, Bangalore - 560001</p>
+                
+                <h4><i class="fas fa-phone-alt me-2"></i> Call Us</h4>
+                <p class="mb-4">+91 9876543210<br>+91 1234567890</p>
+                
+                <h4><i class="fas fa-envelope me-2"></i> Email Us</h4>
+                <p class="mb-4">info@icstraining.com<br>admissions@icstraining.com</p>
+                
+                <h4><i class="fas fa-clock me-2"></i> Working Hours</h4>
+                <p>Monday - Saturday: 9:00 AM - 6:00 PM<br>Sunday: Closed</p>
+            </div>
+            
+            <div class="col-lg-6 mb-4" data-aos="fade-left">
+                <form id="contactForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Your Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="course" class="form-label">Course Interested In</label>
+                        <select class="form-select" id="course" required>
+                            <option value="">Select a course</option>
+                            <optgroup label="IT Courses">
+                                <option>DCA (Diploma in Computer Application)</option>
+                                <option>PGDCA (Post Graduate Diploma)</option>
+                                <option>ICSE-MACT (Masters in Advanced Computer Technology)</option>
+                                <option>Python Fullstack Development</option>
+                            </optgroup>
+                            <optgroup label="Business Courses">
+                                <option>TALLY</option>
+                                <option>DIFA (Diploma in Financial Accounting)</option>
+                                <option>DIFA + SAP</option>
+                                <option>IFA (International Financial Accounting)</option>
+                            </optgroup>
+                            <optgroup label="Design Courses">
+                                <option>ICSE Fashion Designing</option>
+                                <option>MACT Fashion Designing</option>
+                                <option>Advanced Diploma in Computerised Fashion Designing</option>
+                                <option>Interior Design Package 1</option>
+                            </optgroup>
+                            <optgroup label="Media Courses">
+                                <option>DIMA (Diploma in Media & Advertisement)</option>
+                                <option>Diploma in Multimedia</option>
+                                <option>Graphic Design + Digital Marketing</option>
+                                <option>DIDM (Diploma in Digital Marketing)</option>
+                            </optgroup>
+                            <option value="other">Other (Specify in Message)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Your Message</label>
+                        <textarea class="form-control" id="message" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="py-4 bg-black text-white">
+    <div class="container text-center">
+        <div class="social-icons mb-3">
+            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="mb-0">&copy; 2023 ICS Academy. All Rights Reserved.</p>
+    </div>
+</footer>
+<!-- Back to Top Button -->
+<a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    // Initialize AOS animations
+    AOS.init({
+        duration: 300,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+    });
+   
+    // Back to top button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 300) {
+            $('.back-to-top').fadeIn('slow');
+        } else {
+            $('.back-to-top').fadeOut('slow');
+        }
+    });
+    
+    $('.back-to-top').click(function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop: 0}, 300);
+        return false;
+    });
+    
+    // Navbar scroll effect
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+            $('#navbar').addClass('scrolled');
+        } else {
+            $('#navbar').removeClass('scrolled');
+        }
+    });
+    
+    // Smooth scrolling for anchor links
+    $('a[href*="#"]').on('click', function(e) {
+        e.preventDefault();
+        
+        $('html, body').animate(
+            {
+                scrollTop: $($(this).attr('href')).offset().top - 70,
+            },
+            800,
+            'easeInOutExpo'
+        );
+    });
+    
+    // Form submission
+    $('#contactForm').submit(function(e) {
+        e.preventDefault();
+        
+        // Add animation to button
+        const btn = $(this).find('button[type="submit"]');
+        btn.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...');
+        btn.prop('disabled', true);
+        
+        // Simulate form submission
+        setTimeout(function() {
+            btn.html('Message Sent!');
+            setTimeout(function() {
+                btn.html('Send Message').prop('disabled', false);
+                $('#contactForm')[0].reset();
+            }, 2000);
+        }, 1500);
+    });
+    
+    // Add hover effect to course cards
+    $('.course-card').hover(
+        function() {
+            $(this).find('.course-badge').css('transform', 'scale(1.1)');
+            $(this).find('.badge').css('transform', 'scale(1.1)');
+        },
+        function() {
+            $(this).find('.course-badge').css('transform', 'scale(1)');
+            $(this).find('.badge').css('transform', 'scale(1)');
+        }
+    );
+    
+    // Add animation to floating elements on scroll
+    $(window).scroll(function() {
+        $('.floating').each(function() {
+            const position = $(this).offset().top;
+            const scroll = $(window).scrollTop();
+            const windowHeight = $(window).height();
+            
+            if (scroll > position - windowHeight + 200) {
+                $(this).addClass('animated');
+            }
+        });
+    });
+    
+    // Enhanced Enrollment Process
+    $('.btn-primary:contains("Enroll Now")').click(function(e) {
+        e.preventDefault();
+        const courseCard = $(this).closest('.course-card');
+        const courseTitle = courseCard.find('.card-title').text();
+        
+        // Scroll to contact form
+        $('html, body').animate({
+            scrollTop: $('#contact').offset().top - 70
+        }, 800);
+        
+        // Set the course in the contact form
+        $('#course').val(courseTitle);
+        
+        // Add slight highlight to the course field
+        $('#course').css('background-color', 'rgba(0, 180, 216, 0.1)');
+        setTimeout(function() {
+            $('#course').css('background-color', '');
+        }, 2000);
+    });
+    
+    // Enhanced Course Search Functionality
+    $(document).ready(function() {
+        $('#courseSearch').on('input', function() {
+            const searchTerm = $(this).val().toLowerCase().trim();
+            let hasResults = false;
+            let totalCourses = 0;
+            let visibleCourses = 0;
+            
+            $('.course-item').each(function() {
+                totalCourses++;
+                const courseTitle = $(this).find('.card-title').text().toLowerCase();
+                const courseDesc = $(this).find('.card-text').text().toLowerCase();
+                const courseCategory = $(this).data('category');
+                const courseDuration = $(this).data('duration');
+                const courseBadge = $(this).find('.course-badge').text().toLowerCase();
+                
+                // Check if search term matches any course attribute
+                const matchesTitle = courseTitle.includes(searchTerm);
+                const matchesDesc = courseDesc.includes(searchTerm);
+                const matchesCategory = courseCategory.includes(searchTerm);
+                const matchesDuration = courseBadge.includes(searchTerm) || 
+                                      (searchTerm.includes('month') && courseDuration.toString().includes(searchTerm.match(/\d+/)?.[0] || '')) ||
+                                      (searchTerm.includes('year') && courseDuration >= 12);
+                
+                if (matchesTitle || matchesDesc || matchesCategory || matchesDuration) {
+                    $(this).show();
+                    hasResults = true;
+                    visibleCourses++;
+                } else {
+                    $(this).hide();
+                }
+            });
+            
+            // Show/hide no results message
+            if (hasResults || searchTerm.length === 0) {
+                $('#noResults').hide();
+            } else {
+                $('#noResults').show();
+            }
+            
+            // Update search count (optional)
+            if (searchTerm.length > 0) {
+                $('#searchCount').remove();
+                $('#courseSearch').after(`<small id="searchCount" class="text-muted">Showing ${visibleCourses} of ${totalCourses} courses</small>`);
+            } else {
+                $('#searchCount').remove();
+            }
+        });
+        
+        // Filter buttons for duration comparison section
+        $('.card-footer .btn').click(function(e) {
+            e.preventDefault();
+            const durationText = $(this).text();
+            let searchTerm = '';
+            
+            if (durationText.includes('4-Month')) {
+                searchTerm = '4 month';
+            } else if (durationText.includes('6-Month')) {
+                searchTerm = '6 month';
+            } else if (durationText.includes('12-Month')) {
+                searchTerm = '1 year';
+            }
+            
+            $('#courseSearch').val(searchTerm).trigger('input');
+            $('html, body').animate({
+                scrollTop: $('#it-courses').offset().top - 70
+            }, 800);
+        });
+    });
+
+</script>
+<script>
+    // ... (keep all your existing JavaScript code until the Enhanced Enrollment Process section)
+
+    // Enhanced Enrollment Process
+    $('.btn-primary:contains("Enroll Now")').click(function(e) {
+        e.preventDefault();
+        const courseCard = $(this).closest('.course-card');
+        const courseTitle = courseCard.find('.card-title').text();
+        
+        // Scroll to contact form with smooth animation
+        $('html, body').animate({
+            scrollTop: $('#contact').offset().top - 70
+        }, 800, function() {
+            // Animation complete - now set the course value
+            // Try to find exact match in dropdown first
+            const courseSelect = $('#course');
+            const options = courseSelect.find('option');
+            let exactMatchFound = false;
+            
+            options.each(function() {
+                if ($(this).text() === courseTitle) {
+                    $(this).prop('selected', true);
+                    exactMatchFound = true;
+                    return false; // break the loop
+                }
+            });
+            
+            // If no exact match found, add the course as a new option
+            if (!exactMatchFound) {
+                // Create a new option group if needed
+                const durationBadge = courseCard.find('.course-badge').text().toLowerCase();
+                let optgroup = null;
+                
+                if (durationBadge.includes('month')) {
+                    const months = durationBadge.match(/\d+/);
+                    if (months && months[0] <= 6) {
+                        optgroup = courseSelect.find('optgroup[label*="6-Month"]');
+                    } else {
+                        optgroup = courseSelect.find('optgroup[label*="12-Month"]');
+                    }
+                }
+                
+                if (!optgroup || optgroup.length === 0) {
+                    optgroup = courseSelect.find('optgroup').last();
+                }
+                
+                // Add the new option
+                optgroup.append(`<option value="${courseTitle}" selected>${courseTitle}</option>`);
+            }
+            
+            // Highlight the course field
+            courseSelect.css('background-color', 'rgba(0, 180, 216, 0.1)');
+            setTimeout(function() {
+                courseSelect.css('background-color', '');
+            }, 2000);
+        });
+    });
+
+    // ... (keep the rest of your existing JavaScript code)
+</script>
+
+</body>
+</html>

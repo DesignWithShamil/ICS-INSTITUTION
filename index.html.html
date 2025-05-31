@@ -1,0 +1,2224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ICS IT Training Institute</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  
+  <style>
+    /* Pre-loader styles */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+    /* Updated Section Header Styles */
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent-color);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.section-title:hover h2::after {
+  width: 80px;
+}
+
+.section-title p.text-muted {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #6c757d;
+}
+
+/* For the features section with white text */
+.features-section .section-title h2 {
+  color: white;
+}
+
+.features-section .section-title p.text-muted {
+  color: rgba(255,255,255,0.7);
+}
+
+.features-section .section-title h2::after {
+  background-color: var(--light-color);
+}
+    /* Updated Carousel Styles */
+    .hero-carousel {
+      position: relative;
+      height: 600px;
+      overflow: hidden;
+    }
+    
+    .hero-carousel video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .carousel-caption {
+      position: absolute;
+      right: 15%;
+      bottom: 100px;
+      left: 15%;
+      z-index: 10;
+      padding-top: 20px;
+      padding-bottom: 20px;
+            color: #161a17;
+      text-align: center;
+     background-color: white;
+
+      padding: 30px;
+      border-radius: 10px;
+      opacity:50%;
+    }
+    
+    .carousel-caption h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    
+    .carousel-caption p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    
+    .carousel-college-ad {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 10px 15px;
+      border-radius: 5px;
+      z-index: 11;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    
+   
+   
+    :root {
+      --primary-color: #03045e;
+      --secondary-color: #0077be;
+      --accent-color: #00b4d8;
+      --light-color: #90e0ef;
+      --extra-light: #caf0f8;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background-color: #f8f9fa;
+      overflow-x: hidden;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    
+    body.fade-out {
+      opacity: 0;
+    }
+    
+    /* Header Styles */
+    .top-banner {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 5px;
+    }
+    
+    .contact-info a {
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-info a:hover {
+      color: var(--light-color);
+    }
+    
+    .opening-hours {
+      color: white;
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+    }
+    
+    .opening-hours i {
+      margin-right: 8px;
+    }
+    
+    /* Navbar Styles */
+    #navbar {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      padding: 20px 0;
+    }
+    
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 24px;
+      color: var(--primary-color) !important;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-brand:hover {
+      transform: scale(1.05);
+    }
+    
+    .navbar-brand span {
+      color: var(--accent-color);
+    }
+    
+    .nav-link {
+      color: var(--primary-color) !important;
+      font-weight: 500;
+      padding: 8px 15px !important;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--accent-color) !important;
+      transform: translateY(-2px);
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-color);
+      bottom: 0;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .dropdown-menu {
+      border: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    .dropdown-item {
+      transition: all 0.3s ease;
+      padding: 8px 15px;
+    }
+    
+    .dropdown-item:hover {
+      background-color: var(--extra-light);
+      color: var(--primary-color);
+      padding-left: 20px;
+    }
+    
+    .navbar-toggler {
+      border: none;
+      padding: 0.5rem;
+    }
+    
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    
+    /* Hero Carousel */
+    .hero-carousel {
+      height: 600px;
+      overflow: hidden;
+      transition: transform 0.3s ease-out;
+    }
+    
+    .carousel-item {
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    
+    .carousel-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+    }
+    
+
+    
+    .btn-primary {
+      background-color: #0d6efd;
+      border: none;
+      padding: 10px 25px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: #0b5ed7;
+      transform: translateY(-3px);
+    }
+    
+   /* Course Section Styles */
+.course-section {
+  background-color: #f8f9fa;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.section-title p.text-muted {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* Course Card Styles */
+.course-section .col-md-3 {
+  transition: transform 0.3s ease;
+}
+
+.course-section a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.course-section a:hover {
+  text-decoration: none;
+}
+
+.course-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.course-title {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+/* Hover Effects */
+.course-section .col-md-3:hover {
+  transform: translateY(-5px);
+}
+
+.course-section a:hover .course-image {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  opacity: 0.9;
+}
+
+.course-section a:hover .course-title {
+  color: #3498db;
+}
+
+/* Button Styles */
+.btn-outline-primary {
+  color: #3498db;
+  border-color: #3498db;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .course-image {
+    height: 140px;
+  }
+  
+  .course-title {
+    font-size: 1rem;
+  }
+  
+  .section-title h2 {
+    font-size: 2rem;
+  }
+}
+    
+    /* Features Section */
+    .features-section {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      padding: 80px 0;
+      color: white;
+    }
+    
+    .feature-box {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      margin-bottom: 30px;
+      height: 100%;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .feature-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .feature-icon {
+      font-size: 40px;
+      color: var(--light-color);
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .feature-box:hover .feature-icon {
+      transform: rotateY(180deg);
+      color: white;
+    }
+    
+    /* Gallery Section */
+    .gallery-section {
+      padding: 80px 0;
+      background-color: var(--extra-light);
+    }
+    
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      height: 250px;
+      transition: all 0.5s ease;
+    }
+    
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.5s ease;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.1);
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(3, 4, 94, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    
+    .gallery-overlay i {
+      color: white;
+      font-size: 40px;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover .gallery-overlay i {
+      transform: rotate(360deg);
+    }
+    
+    /* Placement Section */
+    .placement-section {
+      padding: 80px 0;
+      background-color: white;
+    }
+    
+    .placement-details {
+      background-color: var(--extra-light);
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .placement-details:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .placement-stats {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .stat-item {
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .stat-item:hover {
+      transform: scale(1.1);
+    }
+    
+    .stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    
+    .company-logo {
+      height: 80px;
+      object-fit: contain;
+      margin: 20px;
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+    
+    .company-logo:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    
+    /* Student Success Section */
+    .success-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+      color: white;
+    }
+    
+    .student-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      margin-bottom: 30px;
+      color: var(--primary-color);
+      cursor: pointer;
+    }
+    
+    .student-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .student-img {
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .student-card:hover .student-img {
+      transform: scale(1.05);
+    }
+    
+    .student-body {
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .student-name {
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: var(--primary-color);
+    }
+    
+    .student-course {
+      color: var(--accent-color);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    
+    .student-company {
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: var(--secondary-color);
+    }
+    
+    /* Testimonials */
+    .testimonial-section {
+      padding: 80px 0;
+      background-color: var(--extra-light);
+    }
+    
+    .testimonial-card-new {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .testimonial-card-new:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    
+    .testimonial-card-new:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--accent-color), var(--secondary-color));
+      transition: all 0.4s ease;
+    }
+    
+    .testimonial-card-new:hover:after {
+      width: 8px;
+    }
+    
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .testimonial-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--light-color);
+      margin-right: 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .testimonial-card-new:hover .testimonial-img {
+      border-color: var(--accent-color);
+      transform: scale(1.1);
+    }
+    
+    .testimonial-info h4 {
+      margin-bottom: 5px;
+      color: var(--primary-color);
+    }
+    
+    .testimonial-info p {
+      color: var(--secondary-color);
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+    
+    .testimonial-rating {
+      color: #FFD700;
+      margin-bottom: 15px;
+    }
+    
+    .testimonial-quote {
+      font-style: italic;
+      position: relative;
+      padding-left: 20px;
+    }
+    
+    .testimonial-quote:before {
+      content: '\201C';
+      font-family: Georgia, serif;
+      font-size: 50px;
+      color: var(--light-color);
+      position: absolute;
+      left: -15px;
+      top: -20px;
+      opacity: 0.3;
+    }
+    
+    /* Contact Section */
+    .contact-section {
+      padding: 80px 0;
+      background-color: white;
+    }
+    
+    .contact-info-box {
+      background-color: var(--extra-light);
+      padding: 30px;
+      border-radius: 10px;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-info-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .contact-icon {
+      font-size: 24px;
+      color: var(--accent-color);
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-info-item:hover .contact-icon {
+      transform: rotate(15deg) scale(1.2);
+      color: var(--secondary-color);
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 50px 0 20px;
+    }
+    
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-logo:hover {
+      transform: scale(1.05);
+    }
+    
+    .footer-logo span {
+      color: var(--accent-color);
+    }
+    
+    .footer-links h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-links h3:after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 2px;
+      background-color: var(--accent-color);
+      bottom: 0;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+    
+    .footer-links h3:hover:after {
+      width: 70px;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links li:hover {
+      transform: translateX(5px);
+    }
+    
+    .footer-links a {
+      color: #bbb;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+      padding-left: 5px;
+    }
+    
+    .social-icons a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      background-color: var(--accent-color);
+      transform: translateY(-5px) scale(1.1);
+    }
+    
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      margin-top: 30px;
+      text-align: center;
+    }
+    
+    /* Course Filter Section */
+    .course-filter-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 30px;
+      margin-bottom: 40px;
+    }
+    
+    /* Modal Styles */
+    .modal-content {
+      border: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .modal-header {
+      border-bottom: none;
+    }
+    
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 19px;
+      right: 18px;
+      display: none;
+      z-index: 99;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 50px;
+      font-size: 20px;
+      background-color: var(--accent-color);
+      color: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .back-to-top:hover {
+      transform: translateY(-5px) scale(1.1);
+      background-color: var(--secondary-color);
+    }
+    
+    /* Glow effect */
+    .glow-on-hover {
+      transition: box-shadow 0.3s ease;
+    }
+    
+    .glow-on-hover:hover {
+      box-shadow: 0 0 15px rgba(0, 180, 216, 0.6);
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    @keyframes ripple {
+      0% {
+        transform: scale(0, 0);
+        opacity: 1;
+      }
+      20% {
+        transform: scale(25, 25);
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: scale(40, 40);
+      }
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    @keyframes wave {
+      0% { transform: rotate(0deg); }
+      10% { transform: rotate(14deg); }
+      20% { transform: rotate(-8deg); }
+      30% { transform: rotate(14deg); }
+      40% { transform: rotate(-4deg); }
+      50% { transform: rotate(10deg); }
+      60% { transform: rotate(0deg); }
+      100% { transform: rotate(0deg); }
+    }
+    
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .wave {
+      display: inline-block;
+      animation: wave 2s infinite;
+      transform-origin: 70% 70%;
+    }
+    
+    /* Course toggle effect */
+    .hidden-courses {
+      display: none;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero-carousel {
+        height: 400px;
+      }
+      
+      .carousel-caption {
+        bottom: 20px;
+        padding: 15px;
+      }
+      
+      .carousel-caption h1 {
+        font-size: 1.8rem;
+      }
+      
+      .carousel-caption p {
+        font-size: 1rem;
+        margin-bottom: 15px;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .contact-info {
+        flex-direction: column;
+        gap: 5px;
+      }
+      
+      .placement-stats {
+        flex-direction: column;
+      }
+      
+      .testimonial-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .testimonial-img {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+      
+      .top-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .opening-hours {
+        margin: 10px auto 0;
+        justify-content: center;
+      }
+    }
+    /* WhatsApp Floating Button */
+        .whatsapp-float {
+    position: fixed;
+    bottom: 15%;
+    right: 10px;
+    z-index: 100;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    opacity: 1;
+}
+
+.whatsapp-float a {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-float img {
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+}
+  .gallery img {
+            width: 100%;
+            height: 300px;
+            background-size:cover;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            
+        }
+         .grid-item {
+    background: white;
+    padding: 0; 
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    text-align: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+      
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth transition for all properties */
+    transform-origin: center center; /* Ensures zoom scales from center */
+    will-change: transform, box-shadow; /* Optimizes for performance */
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider img {
+    width: 100%;  
+    height: 100%;
+    
+    object-fit: contain; 
+    position: absolute;
+    transition: opacity 1s ease-in-out;
+}
+.grid-item {
+    
+}
+
+.grid-item:hover {
+  transform: translateY(-20px) scale(1.05) rotateY(5deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+        .navbar-brand{
+            margin-top:-25px;
+        }
+
+        
+        .grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+
+}
+
+.grid-item {
+  width: 100%;
+  overflow: hidden;
+}
+  @media (max-width: 768px) {
+           
+        
+        .grid-container {
+            display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+          
+            
+
+        }
+
+        @media (max-width: 600px) {
+            .grid-container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+        .grid-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition out */
+}
+
+  </style>
+</head>
+<body>
+<div class="preloader">
+        <div class="loader"></div>
+        <p>ICS Ottappalam Loading, please wait...</p>
+    </div>
+    
+    <!-- Opening Time Detail Modal -->
+<div class="modal fade" id="openingTimeModal" tabindex="-1" aria-labelledby="openingTimeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="openingTimeModalLabel">Our Opening Hours</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="opening-hours-details">
+          <div class="day-row d-flex justify-content-between py-2 border-bottom">
+            <span class="day">Monday</span>
+            <span class="time">9:00 AM - 6:00 PM</span>
+          </div>
+          <div class="day-row d-flex justify-content-between py-2 border-bottom">
+            <span class="day">Tuesday</span>
+            <span class="time">9:00 AM - 6:00 PM</span>
+          </div>
+          <div class="day-row d-flex justify-content-between py-2 border-bottom">
+            <span class="day">Wednesday</span>
+            <span class="time">9:00 AM - 6:00 PM</span>
+          </div>
+          <div class="day-row d-flex justify-content-between py-2 border-bottom">
+            <span class="day">Thursday</span>
+            <span class="time">9:00 AM - 6:00 PM</span>
+          </div>
+          <div class="day-row d-flex justify-content-between py-2 border-bottom">
+            <span class="day">Friday</span>
+            <span class="time">9:00 AM - 6:00 PM</span>
+          </div>
+          <div class="day-row d-flex justify-content-between py-2 border-bottom">
+            <span class="day">Saturday</span>
+            <span class="time">9:00 AM - 6:00 PM</span>
+          </div>
+          <div class="day-row d-flex justify-content-between py-2">
+            <span class="day text-danger">Sunday</span>
+            <span class="time text-danger">Closed</span>
+          </div>
+        </div>
+        <div class="holiday-notice mt-4 p-3 bg-light rounded">
+          <h6><i class="fas fa-exclamation-circle me-2 text-warning"></i> Holiday Notice</h6>
+          <p class="mb-0">We remain closed on all public holidays. Special batches may be arranged during holidays - please contact us for details.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="#contact" class="btn btn-primary" data-bs-dismiss="modal">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Top Banner -->
+<div class="top-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <div>
+          <p class="mb-2 mb-md-0">Enroll Now for Upcoming Batches | Limited Seats Available</p>
+          <div class="contact-info">
+            <a href="tel:+919876543210"><i class="fas fa-phone"></i> +91 9876543210</a>
+            <a href="mailto:info@icstraining.com"><i class="fas fa-envelope"></i> info@icstraining.com</a>
+          </div>
+        </div>
+        <div class="opening-hours d-none d-md-flex align-items-center">
+          <i class="fas fa-clock me-2"></i>
+          <div>
+            <span class="d-block">Open Today: 9:00 AM - 6:00 PM</span>
+            <small class="d-block">Sunday Closed</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" id="navbar">
+  <div class="container">
+   <a class="navbar-brand" href="#">
+  <img src="logo2.png" alt="ICS INDIA" height="60" style="margin-top:10px;">
+</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#home">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#courses" id="coursesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Courses
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="coursesDropdown">
+            <a href="coursee.html"><li ><h6 class="dropdown-header">View More</h6></li></a>
+           
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#gallery">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#placements">Placements</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#success">Success Stories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#testimonials">Testimonials</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#demoClassModal">
+            <i class="fas fa-calendar-check me-1"></i> Book Demo
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Demo Class Modal -->
+<div class="modal fade" id="demoClassModal" tabindex="-1" aria-labelledby="demoClassModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="demoClassModalLabel">Book a Free Demo Class</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="demoClassForm">
+          <div class="mb-3">
+            <label for="demoName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="demoName" required>
+          </div>
+          <div class="mb-3">
+            <label for="demoEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="demoEmail" required>
+          </div>
+          <div class="mb-3">
+            <label for="demoPhone" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="demoPhone" required>
+          </div>
+          <div class="mb-3">
+            <label for="demoCourse" class="form-label">Course Interested In</label>
+            <select class="form-select" id="demoCourse" required>
+              <option value="" selected disabled>Select a course</option>
+              <option value="Web Development">Web Development</option>
+              <option value="Python Programming">Python Programming</option>
+              <option value="Data Science">Data Science</option>
+              <option value="Mobile App Development">Mobile App Development</option>
+              <option value="Digital Marketing">Digital Marketing</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="demoDate" class="form-label">Preferred Date</label>
+            <input type="date" class="form-control" id="demoDate" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Book Demo Class</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Updated Hero Video Carousel with College Ads -->
+  <div id="mainCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="900">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <video autoplay muted loop playsinline class="d-block w-100">
+          <source src="one.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <div class="carousel-college-ad">
+          <strong>Admission Open!</strong> Limited seats available for 2024 batch
+        </div>
+        <div class="carousel-caption">
+          <h1 class="animate__animated animate__fadeInDown">Transform Your Career with Expert Training</h1>
+          <p class="animate__animated animate__fadeInUp">Industry-relevant courses with hands-on practical sessions</p>
+          <a href="#courses" class="btn btn-primary btn-lg animate__animated animate__fadeInUp">Explore Courses</a>
+        </div>
+      </div>
+      
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <video autoplay muted loop playsinline class="d-block w-100">
+         <source src="three.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <div class="carousel-college-ad">
+          <strong>Scholarships Available!</strong> Apply before June 30
+        </div>
+        <div class="carousel-caption">
+          <h1 class="animate__animated animate__fadeInDown">100% Placement Assistance</h1>
+          <p class="animate__animated animate__fadeInUp">Our students placed in top companies with excellent packages</p>
+          <a href="#placements" class="btn btn-primary btn-lg animate__animated animate__fadeInUp">Placement Details</a>
+        </div>
+      </div>
+      
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <video autoplay muted loop playsinline class="d-block w-100">
+        <source src="two.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <div class="carousel-college-ad">
+          <strong>Free Demo Classes!</strong> Book your slot today
+        </div>
+        <div class="carousel-caption">
+          <h1 class="animate__animated animate__fadeInDown">Learn From Industry Experts</h1>
+          <p class="animate__animated animate__fadeInUp">Practical knowledge from professionals with years of experience</p>
+          <a href="#contact" class="btn btn-primary btn-lg animate__animated animate__fadeInUp">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+<div class="whatsapp-float">
+  <a href="https://wa.me/7356004922" target="_blank" title="Chat on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+  </a>
+</div>
+
+<!-- Courses Section -->
+<!-- Course Types Section -->
+<section class="course-section py-5" id="courses">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Course Types</h2>
+      <p class="text-muted">Specialized training programs in different disciplines</p>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <a href="accounts-course.html" class="d-block">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="course-image" alt="Accounts Course">
+          <h5 class="course-title">Accounting Courses</h5>
+        </a>
+      </div>
+      <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <a href="technical-course.html" class="d-block">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="course-image" alt="Technical Course">
+          <h5 class="course-title">Technical Courses</h5>
+        </a>
+      </div>
+      <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+        <a href="multimedia-course.html" class="d-block">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="course-image" alt="Multimedia Course">
+          <h5 class="course-title">Multimedia Courses</h5>
+        </a>
+      </div>
+      <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+        <a href="cad-course.html" class="d-block">
+          <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="course-image" alt="CAD Training Course">
+          <h5 class="course-title">CAD Training Courses</h5>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <a href="software-course.html" class="d-block">
+          <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="course-image" alt="Software Course">
+          <h5 class="course-title">Software Courses</h5>
+        </a>
+      </div>
+      <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <a href="fashion-course.html" class="d-block">
+          <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="course-image" alt="Fashion Design Course">
+          <h5 class="course-title">Fashion Design Courses</h5>
+        </a>
+      </div>
+      <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+        <a href="business-course.html" class="d-block">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="course-image" alt="Business Course">
+          <h5 class="course-title">Business Courses</h5>
+        </a>
+      </div>
+      <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+        <a href="language-course.html" class="d-block">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="course-image" alt="Language Course">
+          <h5 class="course-title">Language Courses</h5>
+        </a>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="coursee.html"><button  class="btn btn-outline-primary">View More courses</button></a>
+  </div>
+</section>
+<!-- Features Section -->
+<section class="features-section">
+  <div class="container">
+    <div class="section-title">
+      <h2 style="color: white;">Why Choose ICS Academy?</h2>
+      <p class="text-white-50">We provide the best learning experience for our students</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-box floating">
+          <div class="feature-icon">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <h4>Expert Trainers</h4>
+          <p>Learn from industry professionals with years of practical experience.</p>
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-box floating">
+          <div class="feature-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h4>Practical Training</h4>
+          <p>Hands-on projects and real-world scenarios for effective learning.</p>
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-box floating">
+          <div class="feature-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <h4>Placement Support</h4>
+          <p>100% placement assistance with our industry connections.</p>
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="feature-box floating">
+          <div class="feature-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <h4>Certification</h4>
+          <p>Get recognized certificates upon course completion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery-section" id="gallery">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Gallery</h2>
+      <p class="text-muted">Moments from our academy</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="gallery-item">
+          <img src="g4.jpeg" class="gallery-img" alt="Classroom Session">
+          <div class="gallery-overlay">
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="gallery-item">
+          <img src="g3.jpeg" class="gallery-img" alt="Workshop">
+          <div class="gallery-overlay">
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+        <div class="gallery-item">
+          <img src="g2.jpeg" class="gallery-img" alt="Lab Session">
+          <div class="gallery-overlay">
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
+      </div>
+       <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="400">
+        <div class="gallery-item">
+          <img src="g1.jpeg" class="gallery-img" alt="Lab Session">
+          <div class="gallery-overlay">
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="500">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="gallery-img" alt="Lab Session">
+          <div class="gallery-overlay">
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="600">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="gallery-img" alt="Lab Session">
+          <div class="gallery-overlay">
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
+      </div>
+     
+    <div class="text-center mt-4">
+      <a href="gallery.html">
+      <button  class="btn btn-outline-primary">View More Photos</button></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- Placement Section -->
+<section class="placement-section" id="placements">
+  <div class="container">
+    <div class="section-title">
+      <h2>Placement Details</h2>
+      <p class="text-muted">Our students are placed in top companies</p>
+    </div>
+    
+    <div class="row mb-5">
+      <div class="col-lg-6 mb-4" data-aos="fade-right">
+        <div class="placement-details">
+          <h3 class="text-center mb-4">Our Placement Process</h3>
+          <div class="d-flex align-items-start mb-3">
+            <div class="me-3">
+              <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">1</div>
+            </div>
+            <div>
+              <h5>Resume Building</h5>
+              <p>We help students create professional resumes highlighting their skills and projects.</p>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-start mb-3">
+            <div class="me-3">
+              <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">2</div>
+            </div>
+            <div>
+              <h5>Mock Interviews</h5>
+              <p>Students undergo multiple mock interviews with industry experts for preparation.</p>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-start mb-3">
+            <div class="me-3">
+              <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">3</div>
+            </div>
+            <div>
+              <h5>Technical Training</h5>
+              <p>Special technical sessions to prepare students for company-specific requirements.</p>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-start">
+            <div class="me-3">
+              <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">4</div>
+            </div>
+            <div>
+              <h5>Placement Drives</h5>
+              <p>Regular placement drives with our partner companies for campus recruitment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-6 mb-4" data-aos="fade-left">
+        <div class="placement-details">
+          <h3 class="text-center mb-4">Placement Statistics</h3>
+          <div class="placement-stats">
+            <div class="stat-item">
+              <div class="stat-number">95%</div>
+              <div>Placement Rate</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">200+</div>
+              <div>Companies</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">5LPA</div>
+              <div>Avg Package</div>
+            </div>
+          </div>
+          <div class="progress mb-3">
+            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <p class="text-center">Our placement rate over the last 3 years</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row" data-aos="fade-up">
+      <div class="col-12">
+        <h4 class="text-center mb-4">Our Recruiting Partners</h4>
+        <div class="row justify-content-center">
+          <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
+            <img src="https://logo.clearbit.com/infosys.com" alt="Infosys" class="company-logo">
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
+            <img src="https://logo.clearbit.com/tcs.com" alt="TCS" class="company-logo">
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
+            <img src="https://logo.clearbit.com/wipro.com" alt="Wipro" class="company-logo">
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
+            <img src="https://logo.clearbit.com/accenture.com" alt="Accenture" class="company-logo">
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
+            <img src="https://logo.clearbit.com/cognizant.com" alt="Cognizant" class="company-logo">
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
+            <img src="https://logo.clearbit.com/ibm.com" alt="IBM" class="company-logo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+   <section class="section" id="success">
+      <div class="container">
+    <div class="section-title">
+      <h2>Student Success Stories</h2>
+      <p class="text-muted">Our students are making us proud in top companies</p>
+    </div>
+       
+       <div class="grid-container" >
+        <div class="grid-item"data-aos="zoom-in" data-aos-delay="100">
+            <div class="slider">
+                <img src="p1.jpeg" class="slide" alt="Slide 1">
+                <img src="p2.jpeg" class="slide" alt="Slide 2">
+                <img src="p3.jpeg" class="slide" alt="Slide 3">
+                <img src="p4.jpeg" class="slide" alt="Slide 4">
+                <img src="p5.jpeg" class="slide" alt="Slide 5">
+                
+            </div>
+        </div>
+
+        <div class="grid-item"data-aos="zoom-in" data-aos-delay="150" >
+            <div class="slider">
+                <img src="p2.jpeg" class="slide" alt="Slide 1">
+                <img src="p3.jpeg" class="slide" alt="Slide 2">
+                <img src="p4.jpeg" class="slide" alt="Slide 3">
+                <img src="p5.jpeg" class="slide" alt="Slide 4">
+                <img src="p1.jpeg" class="slide" alt="Slide 5">
+            </div>
+        </div>
+
+       
+        <div class="grid-item" data-aos="zoom-in" data-aos-delay="200">
+            <div class="slider">
+                <img src="p3.jpeg" class="slide" alt="Slide 1">
+                <img src="p4.jpeg" class="slide" alt="Slide 2">
+                <img src="p5.jpeg" class="slide" alt="Slide 3">
+                <img src="p1.jpeg" class="slide" alt="Slide 4">
+                <img src="p2.jpeg" class="slide" alt="Slide 5">
+                
+            </div>
+        </div>
+          <div class="grid-item" data-aos="zoom-in" data-aos-delay="250">
+            <div class="slider">
+                <img src="p4.jpeg" class="slide" alt="Slide 1">
+                <img src="p5.jpeg" class="slide" alt="Slide 2">
+                <img src="p1.jpeg" class="slide" alt="Slide 3">
+                <img src="p2.jpeg" class="slide" alt="Slide 4">
+                <img src="p3.jpeg" class="slide" alt="Slide 5">
+            </div>
+        </div>
+       
+    </div>
+   <div class="text-center mt-4">
+      <a href="sucess.html"><button  class="btn btn-outline-primary"style="margin-bottom: 20px; margin-top: 20px;">View More Success Stories</button>
+    </div></a>
+        </div>
+    </section>
+
+
+<!-- Testimonials Section -->
+<section class="testimonial-section" id="testimonials">
+  <div class="container">
+    <div class="section-title">
+      <h2>What Our Students Say</h2>
+      <p class="text-muted">Hear from our successful students</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial-card-new">
+          <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student" class="testimonial-img">
+            <div class="testimonial-info">
+              <h4>Vikram Singh</h4>
+              <p>Web Development</p>
+            </div>
+          </div>
+          <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-quote">The Web Development course at ICS Academy transformed my career. The hands-on projects gave me the confidence to apply for jobs immediately after completion.</p>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-card-new">
+          <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Student" class="testimonial-img">
+            <div class="testimonial-info">
+              <h4>Neha Gupta</h4>
+              <p>Data Science</p>
+            </div>
+          </div>
+          <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p class="testimonial-quote">The instructors are industry experts who know exactly what skills are needed in the job market. I got placed before even completing my course!</p>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="testimonial-card-new">
+          <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Student" class="testimonial-img">
+            <div class="testimonial-info">
+              <h4>Arjun Reddy</h4>
+              <p>Python Programming</p>
+            </div>
+          </div>
+          <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-quote">The placement support is exceptional. They helped me prepare for interviews and connected me with multiple companies. Highly recommended!</p>
+        </div>
+      </div>
+      
+      <!-- Additional Testimonials -->
+      <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial-card-new">
+          <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Student" class="testimonial-img">
+            <div class="testimonial-info">
+              <h4>Meera Desai</h4>
+              <p>Mobile App Development</p>
+            </div>
+          </div>
+          <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p class="testimonial-quote">The project-based learning approach helped me build a strong portfolio that impressed recruiters. Got placed as a Flutter developer within a month!</p>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-card-new">
+          <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Student" class="testimonial-img">
+            <div class="testimonial-info">
+              <h4>Rohan Verma</h4>
+              <p>Cybersecurity</p>
+            </div>
+          </div>
+          <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-quote">The lab sessions with real-world scenarios were incredibly valuable. I was able to apply what I learned directly in my new cybersecurity role.</p>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="testimonial-card-new">
+          <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Student" class="testimonial-img">
+            <div class="testimonial-info">
+              <h4>Shreya Kapoor</h4>
+              <p>Digital Marketing</p>
+            </div>
+          </div>
+          <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p class="testimonial-quote">The practical assignments and case studies gave me hands-on experience that made me job-ready. Landed a marketing role before course completion!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p class="text-muted">Get in touch for course inquiries or any questions</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-5 mb-4" data-aos="fade-right">
+        <div class="contact-info-box">
+          <h4 class="mb-4">Contact Information</h4>
+          <div class="contact-info-item d-flex align-items-start mb-4">
+            <i class="fas fa-map-marker-alt contact-icon"></i>
+            <div>
+              <h5>Address</h5>
+              <p>123 Education Street, Tech City, Bangalore - 560001</p>
+            </div>
+          </div>
+          <div class="contact-info-item d-flex align-items-start mb-4">
+            <i class="fas fa-phone-alt contact-icon"></i>
+            <div>
+              <h5>Phone</h5>
+              <p>+91 9876543210<br>+91 1234567890</p>
+            </div>
+          </div>
+          <div class="contact-info-item d-flex align-items-start mb-4">
+            <i class="fas fa-envelope contact-icon"></i>
+            <div>
+              <h5>Email</h5>
+              <p>info@icstraining.com<br>admissions@icstraining.com</p>
+            </div>
+          </div>
+          <div class="contact-info-item d-flex align-items-start">
+            <i class="fas fa-clock contact-icon"></i>
+            <div>
+              <h5>Working Hours</h5>
+              <p>Monday - Saturday: 9:00 AM - 6:00 PM<br>Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-7 mb-4" data-aos="fade-left">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h4 class="mb-4">Send Us a Message</h4>
+            <form id="contactForm">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="name" class="form-label">Your Name</label>
+                  <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="email" class="form-label">Your Email</label>
+                  <input type="email" class="form-control" id="email" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control" id="subject" required>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Map Section -->
+    <div class="row mt-4" data-aos="fade-up">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-0">
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.509078628704!2d76.36516006516675!3d10.77226714736619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7d92ba69faa89%3A0xc51f50dd961ad1f8!2sICS%20INDIA%20IT%20EDUCATION%20(OTP)!5e0!3m2!1sen!2sin!4v1744874607697!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <div class="footer-logo">ICS <span>Academy</span></div>
+        <p>Providing quality education and training since 2010. Our mission is to bridge the gap between education and industry requirements.</p>
+        <div class="social-icons mt-4">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <div class="col-lg-2 col-md-6 mb-4">
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#placements">Placements</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="footer-links">
+          <h3>Popular Courses</h3>
+          <ul>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Python Programming</a></li>
+            <li><a href="#">Data Science</a></li>
+            <li><a href="#">Mobile App Development</a></li>
+            <li><a href="#">Digital Marketing</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="footer-links">
+          <h3>Contact Info</h3>
+          <ul class="contact-info">
+            <li><i class="fas fa-map-marker-alt me-2"></i> 123 Education St, Bangalore</li>
+            <li><i class="fas fa-phone-alt me-2"></i> +91 9876543210</li>
+            <li><i class="fas fa-envelope me-2"></i> info@icstraining.com</li>
+            <li><i class="fas fa-clock me-2"></i> Mon-Sat: 9AM - 6PM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p class="mb-0">&copy; 2023 ICS Academy. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top Button -->
+<a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+<!-- JavaScript -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  // Initialize AOS (Animate On Scroll)
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
+  });
+
+  // Back to top button
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 300) {
+      $('.back-to-top').fadeIn('slow');
+    } else {
+      $('.back-to-top').fadeOut('slow');
+    }
+  });
+  
+  $('.back-to-top').click(function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop: 0}, 300);
+    return false;
+  });
+  
+  // Navbar scroll effect
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+      $('#navbar').addClass('shadow-sm');
+      $('#navbar').css('padding', '10px 0');
+    } else {
+      $('#navbar').removeClass('shadow-sm');
+      $('#navbar').css('padding', '20px 0');
+    }
+  });
+  
+  // Smooth scrolling for anchor links
+// Smooth scrolling for anchor links
+$('a[href*="#"]').on('click', function(e) {
+    e.preventDefault();
+    
+    $('html, body').animate({
+        scrollTop: $($(this).attr('href')).offset().top - 70
+    }, 500, 'linear');
+});
+  // Toggle courses functionality
+  $('#toggleCourses').click(function() {
+    $('.hidden-courses').slideToggle(500);
+    if ($(this).text() === 'View All Courses') {
+      $(this).text('Hide Courses');
+    } else {
+      $(this).text('View All Courses');
+    }
+  });
+  
+ 
+ 
+  
+  // Student detail modal functionality
+  $('.student-card').click(function() {
+    const studentImg = $(this).find('.student-img').attr('src');
+    const studentName = $(this).find('.student-name').text();
+    const studentCourse = $(this).find('.student-course').text();
+    const studentCompany = $(this).find('.student-company').text().replace('Placed at: ', '');
+    const studentTestimonial = $(this).find('p:not([class])').text();
+    
+    // These would normally come from a data attribute or API
+    const studentAbout = "Completed the course with distinction and immediately got placed in a top company.";
+    const studentExperience = "Working as a professional developer/designer since completing the course at ICS Academy.";
+    
+    $('#modalStudentImg').attr('src', studentImg);
+    $('#modalStudentName').text(studentName);
+    $('#modalStudentCourse').text(studentCourse);
+    $('#modalStudentCompany').text(studentCompany);
+    $('#modalStudentAbout').text(studentAbout);
+    $('#modalStudentExperience').text(studentExperience);
+    $('#modalStudentTestimonial').text(studentTestimonial);
+    
+    $('#studentDetailModal').modal('show');
+  });
+  
+  
+  // Form submission
+  $('#contactForm').submit(function(e) {
+    e.preventDefault();
+    alert('Thank you for your message! We will get back to you soon.');
+    this.reset();
+  });
+  
+  // Demo class form submission
+  $('#demoClassForm').submit(function(e) {
+    e.preventDefault();
+    alert('Thank you for booking a demo class! We will contact you shortly to confirm.');
+    $('#demoClassModal').modal('hide');
+    this.reset();
+  });
+  
+  // Initialize all fade-in elements as invisible
+  $('.fade-in').each(function() {
+    $(this).css({
+      'opacity': '0',
+      'transform': 'translateY(20px)'
+    });
+  });
+  
+  // Animate elements when they come into view
+  $(window).scroll(function() {
+    $('.fade-in').each(function() {
+      var elementPos = $(this).offset().top;
+      var scrollPos = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      
+      if (scrollPos > elementPos - windowHeight + 100) {
+        $(this).css({
+          'opacity': '1',
+          'transform': 'translateY(0)'
+        });
+      }
+    });
+  });
+  
+  // Trigger scroll event once to check initial positions
+  $(window).trigger('scroll');
+  
+  // Add parallax effect to hero section
+  $(window).scroll(function() {
+    const scroll = $(window).scrollTop();
+    $('.hero-carousel').css('transform', `translateY(${scroll * 0.3}px)`);
+  });
+</script>
+  <script>
+         function toggleMenu() {
+        var menu = document.getElementById("nav-menu");
+        menu.classList.toggle("active");
+    }
+        let currentIndex = 0;
+        const slides = document.querySelectorAll(".slider .slide");
+        const totalSlides = slides.length /4 ; 
+
+        function changeSlide() {
+            document.querySelectorAll(".slider").forEach((slider) => {
+                let images = slider.querySelectorAll(".slide");
+                images.forEach((img, index) => {
+                    img.style.opacity = index === currentIndex ? "1" : "0";
+                });
+            });
+
+            currentIndex = (currentIndex + 1) % totalSlides;
+        }
+
+        setInterval(changeSlide, 3000); 
+         // Simulate pre-loading
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.preloader').style.opacity = '0';
+                setTimeout(function() {
+                    document.querySelector('.preloader').style.display = 'none';
+                    document.querySelector('.otp-section').style.display = 'block';
+                    startTimer();
+                }, 500);
+            }, 2000); // 2 seconds loading time
+        });
+    </script>
+
+</body>
+</html>
