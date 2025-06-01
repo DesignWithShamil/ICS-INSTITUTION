@@ -1176,7 +1176,105 @@
         .grid-item {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition out */
 }
+/* Updated Carousel Styles for Mobile */
+.hero-carousel {
+  position: relative;
+  height: 300px; /* Reduced height for mobile */
+  overflow: hidden;
+}
 
+.carousel-caption {
+  position: absolute;
+  right: 10px; /* Reduced side margins */
+  left: 10px;
+  bottom: 20px; /* Positioned higher */
+  z-index: 10;
+  padding: 15px; /* Smaller padding */
+  color: #161a17;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8); /* More transparent */
+  border-radius: 8px;
+  width: 90%; /* Take more width */
+  margin: 0 auto; /* Center it */
+}
+
+.carousel-caption h1 {
+  font-size: 1.5rem !important; /* Smaller heading */
+  margin-bottom: 10px !important;
+  line-height: 1.3;
+}
+
+.carousel-caption p {
+  font-size: 0.9rem !important; /* Smaller paragraph */
+  margin-bottom: 15px !important;
+  display: none; /* Hide on smallest screens */
+}
+
+.carousel-caption .btn {
+  padding: 5px 15px !important;
+  font-size: 0.9rem !important;
+}
+
+.carousel-college-ad {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  border-radius: 4px;
+  z-index: 11;
+  font-size: 0.7rem;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+/* Adjust for slightly larger screens */
+@media (min-width: 576px) {
+  .hero-carousel {
+    height: 350px;
+  }
+  
+  .carousel-caption p {
+    display: block; /* Show paragraph */
+  }
+}
+
+/* Tablet and larger */
+@media (min-width: 768px) {
+  .hero-carousel {
+    height: 450px;
+  }
+  
+  .carousel-caption {
+    right: 15%;
+    left: 15%;
+    bottom: 50px;
+    padding: 20px;
+    width: auto;
+  }
+  
+  .carousel-caption h1 {
+    font-size: 2rem !important;
+  }
+  
+  .carousel-caption p {
+    font-size: 1rem !important;
+  }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+  .hero-carousel {
+    height: 600px;
+  }
+  
+  .carousel-caption h1 {
+    font-size: 2.5rem !important;
+  }
+  
+  .carousel-caption p {
+    font-size: 1.1rem !important;
+  }
+}
   </style>
 </head>
 <body>
@@ -2218,6 +2316,25 @@ $('a[href*="#"]').on('click', function(e) {
                 }, 500);
             }, 2000); // 2 seconds loading time
         });
+    // Adjust video height on resize
+function adjustVideoHeight() {
+  const carousel = document.querySelector('.hero-carousel');
+  const videos = document.querySelectorAll('.hero-carousel video');
+  
+  if (window.innerWidth < 768) {
+    const height = Math.min(window.innerWidth * 0.75, 300); // Max 300px height
+    carousel.style.height = `${height}px`;
+    videos.forEach(video => {
+      video.style.height = `${height}px`;
+    });
+  }
+}
+
+// Initial adjustment
+adjustVideoHeight();
+
+// Adjust on window resize
+window.addEventListener('resize', adjustVideoHeight);
     </script>
 
 </body>
